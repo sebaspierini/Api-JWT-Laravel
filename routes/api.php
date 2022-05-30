@@ -10,7 +10,7 @@ use App\Http\Controllers\ApplicantController;
 Route::controller(AuthController::class)->group(function () {
     Route::post('auth/login', 'login');
     Route::post('auth/register/user', 'register');
-    Route::post('auth/logout', 'logout');
+    Route::get('auth/logout', 'logout');
 });
 
 // Endpoint para registrar Ofertas de trabajos con usuarios
