@@ -18,4 +18,9 @@ class JobOffer extends Model
         'name',
         'state_id',
     ];
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'applicants');
+    }
 }

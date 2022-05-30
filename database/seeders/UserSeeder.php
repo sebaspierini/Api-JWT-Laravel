@@ -18,5 +18,6 @@ class UserSeeder extends Seeder
         User::truncate();
 
         User::create(['email' =>'seba.i.pierini@gmail.com', 'password' => bcrypt('123456789'), 'name' => 'Sebastian', 'document_type_id' => '1', 'document_number' => '33744884']);
+        User::create(['email' =>'nadia@gmail.com', 'password' => bcrypt('123456789'), 'name' => 'Nadia', 'document_type_id' => '2', 'document_number' => '33744886']);
     }
 }

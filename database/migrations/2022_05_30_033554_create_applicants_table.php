@@ -17,6 +17,8 @@ return new class extends Migration
             $table->foreignId('job_offer_id')->constrained();
             $table->foreignId('user_id')->constrained();
             $table->primary(array('job_offer_id', 'user_id'));
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
         });
     }
 

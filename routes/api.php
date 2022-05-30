@@ -2,18 +2,19 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\JobOfferController;
+use App\Http\Controllers\ApplicantController;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
+// Endpoint para registrar usuarios e implementar JWT
+Route::controller(AuthController::class)->group(function () {
+    Route::post('auth/login', 'login');
+    Route::post('auth/register/user', 'register');
+    Route::post('auth/logout', 'logout');
+});
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+// Endpoint para registrar Ofertas de trabajos con usuarios
+Route::controller(JobOfferController::class)->group(function () {
+    Route::post('job_offer/register', 'register');
+    Route::get('job_offer/getAssosiatedCandidates', 'getAssosiatedCandidates');
 });

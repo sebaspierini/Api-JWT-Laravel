@@ -26,3 +26,17 @@ Bono
 1.	Despliegue Dockerizado
 2.	Github Actions
 3.	Despliegue en cualquier entorno open source (Heroku)
+
+Pasos para la configuración
+
+1. En windows instalar wsl2
+2. Instalar docker
+3. Descargar proyecto desde git
+4. Abrir el proyecto y ejecutar lo siguiente
+docker run --rm --interactive --tty \
+ --volume $PWD:/app \
+ composer install --ignore-platform-reqs --no-scripts
+5. Ejecutar nano ~/.basrc y agregar la siguiente línea: alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
+6. Guardar el cambio y ejecutar source ~/.bashrc para actualizar
+7. Pararse dentro del proyecto y correr el comando sail up -d (Se descargá todo lo necesario para correr el ambiente)
+8. 
